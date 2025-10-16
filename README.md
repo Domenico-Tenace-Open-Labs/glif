@@ -1,5 +1,7 @@
 # Glif - QR Code Generator
 
+![Preview of Create page](./.github/assets/generator.png)
+
 ## Description
 
 Glif is a small web application that allows you to create and download customizable QR codes.
