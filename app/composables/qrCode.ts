@@ -10,7 +10,7 @@ interface QRCodeData {
   imageSettings: ImageSettings;
 }
 
-const defaultData = {
+const data = ref<QRCodeData>({
   value: "",
   size: 150,
   level: "M",
@@ -23,12 +23,24 @@ const defaultData = {
     width: 80,
     excavate: true,
   },
-} satisfies Readonly<QRCodeData>;
-
-const data = ref<QRCodeData>(defaultData);
+});
 
 export const useQRCode = () => {
-  const resetData = () => (data.value = defaultData);
+  const resetData = () =>
+    (data.value = {
+      value: "",
+      size: 150,
+      level: "M",
+      renderAs: "canvas",
+      background: "#ffffff",
+      foreground: "#000000",
+      imageSettings: {
+        src: "",
+        height: 80,
+        width: 80,
+        excavate: true,
+      },
+    } satisfies Readonly<QRCodeData>);
 
   const downloadQRCode = () => {
     if (data.value.value.trim() == "" || data.value.value == null) {
