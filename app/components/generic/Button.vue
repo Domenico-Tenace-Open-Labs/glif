@@ -4,20 +4,23 @@ const props = defineProps<{
   bgColor?: string;
 }>();
 
-const btnColorsClass = computed(() => {
+const style = computed(() => {
   if (props.bgColor === "secondary") {
-    return "bg-secondary text-surface hover:bg-primary focus:bg-primary focus:ring-secondary";
+    return "bg-secondary hover:bg-secondary/80 focus:bg-secondary/80";
   }
 
-  return "bg-primary text-surface hover:bg-green-600 focus:bg-green-600 focus:ring-primary";
+  return "bg-primary hover:bg-primary/80 focus:bg-primary/80";
 });
 </script>
 
 <template>
   <button
     :disabled="disabled"
-    :class="btnColorsClass"
-    class="shadow-minimal font-bold rounded transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed px-4 py-[.8rem] text-base"
+    :class="[
+      'font-medium rounded-lg transition-all duration-500 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed px-6 py-3 text-base cursor-pointer',
+      'flex justify-center items-center gap-1 text-background',
+      style,
+    ]"
   >
     <slot />
   </button>

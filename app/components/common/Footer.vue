@@ -1,10 +1,10 @@
 <template>
-  <footer class="bg-secondary text-surface text-center shadow-minimal p-4">
-    <div class="flex justify-center">
-      <p>
-        Made with ❤️ by
-        <a href="https://linktr.ee/domenicotenace">Domenico Tenace</a>
-      </p>
-    </div>
+  <footer class="flex justify-center bg-primary text-surface text-center px-4 md:px-64 py-4 z-20">
+    <span>
+      Made with ❤️
+      <NuxtLink to="https://www.github.com/DomeT99/glif" external class="underline"
+        >GitHub</NuxtLink
+      >
+    </span>
   </footer>
 </template>

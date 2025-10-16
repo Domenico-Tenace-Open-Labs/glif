@@ -1,37 +1,33 @@
 <script setup lang="ts">
-import QrcodeVue from "qrcode.vue";
-import { useCreateStore } from "~/store/createStore";
+import QRCode from "qrcode.vue";
 
-const store = useCreateStore();
+const { data } = useQRCode();
 </script>
 <template>
-  <section>
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 md:mt-[20vh] bg-accent p-4 sm:p-6 md:p-10 rounded-lg md:h-[50vh]"
-    > 
-      <div
-        class="flex justify-center items-center p-4 bg-background rounded-lg order-1 md:order-2"
-      >
-        <QrcodeVue
-          :value="store.qrCodeData.value"
-          :level="store.qrCodeData.level"
-          :render-as="store.qrCodeData.renderAs"
-          :background="store.qrCodeData.background"
-          :foreground="store.qrCodeData.foreground"
-          :size="store.qrCodeData.size"
-        />
-      </div>
-
-      <div class="md:col-span-2 order-2 md:order-1">
-        <CreateForm />
-      </div>
-    </div>
-
-    <div
-      class="bg-accent mt-4 px-4 py-4 sm:px-6 sm:py-4 rounded-lg flex flex-col sm:flex-row justify-center sm:justify-end gap-4"
+  <main
+    class="grow-1 md:flex md:justify-center md:items-center px-4 md:px-64 py-4 overflow-y-scroll"
+  >
+    <section
+      class="w-full h-fit flex flex-col md:grid md:grid-cols-2 gap-3 p-3 rounded-xl bg-background-muted border border-neutral-800"
     >
-      <GenericButton @click="store.resetForm">RESET</GenericButton>
-      <GenericButton @click="store.downloadQRCode">DOWNLOAD</GenericButton>
-    </div>
-  </section>
+      <FormCreateQRCode />
+      <aside
+        class="relative w-full h-full flex justify-center items-center rounded-lg border border-neutral-800 aspect-square"
+      >
+        <section
+          class="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,var(--color-neutral-800)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-neutral-800)_1px,transparent_1px)] bg-[size:6rem_6rem] bg-center opacity-40 z-0"
+        ></section>
+        <p class="absolute inset-y-0 text-md text-neutral-500/50 mt-2">Preview</p>
+        <QRCode
+          :value="data.value"
+          :level="data.level"
+          :render-as="data.renderAs"
+          :background="data.background"
+          :foreground="data.foreground"
+          :size="data.size"
+          class="z-10"
+        />
+      </aside>
+    </section>
+  </main>
 </template>

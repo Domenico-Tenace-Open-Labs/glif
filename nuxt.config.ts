@@ -1,20 +1,39 @@
+import tailwindcss from "@tailwindcss/vite";
+
 export default defineNuxtConfig({
+  compatibilityDate: "2025-07-15",
+  devtools: { enabled: false },
+  modules: ["@vite-pwa/nuxt", "@nuxt/fonts"],
+
   app: {
+    pageTransition: { name: "page", mode: "out-in" },
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
-      title: "Glif",
+      title: "Glif | Create and download customizable QR codes",
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
-  compatibilityDate: "2025-07-15",
-  devtools: { enabled: true },
-  modules: ["@pinia/nuxt", "@nuxtjs/tailwindcss", "@vite-pwa/nuxt"],
+
+  css: ["~/assets/css/main.css"],
+
+  fonts: {
+    defaults: {
+      weights: [300, 400, 500, 600, 700],
+      styles: ["normal"],
+    },
+    families: [{ name: "Inter", provider: "google" }],
+  },
+
+  vite: { plugins: [tailwindcss()] },
+
   pwa: {
-    registerType: "autoUpdate", 
+    registerType: "autoUpdate",
     strategies: "generateSW",
     manifest: {
       name: "Glif",
       short_name: "Glif",
+      description: "Application that allows you to create and download customizable QR codes",
       theme_color: "#4caf50",
       icons: [
         {

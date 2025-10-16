@@ -1,45 +1,36 @@
-# Glif
+# Glif - QR Code Generator
 
-QR code generator built with Nuxt 4, TypeScript and Tailwind CSS.
+## Description
 
-Description
------------
-Glif is a small web application that allows you to create and download customizable QR codes 💯
-<br />
-The UI is designed to be simple and responsive across desktop, tablet and mobile 📱
+Glif is a small web application that allows you to create and download customizable QR codes.
 
-Key Features
-------------
+## Key Features
+
 - Generate QR codes from text or URLs
-- Customize size and foreground/background colors 
+- Customize size and foreground/background colors
 - Download the QR code as a PNG image
 
-Tech Stack
-----------
-- Nuxt 4
+## Tech Stack
+
+- Nuxt
 - TypeScript
-- Tailwind CSS
-- Pinia for state management
-- [qrcode.vue](https://github.com/scopewu/qrcode.vue) for QR rendering 
+- TailwindCSS
+- [qrcode.vue](https://github.com/scopewu/qrcode.vue) for QR rendering
 
+## Requirements
 
-Requirements
-------------
 - Node.js (recommended v16+ or v18+)
 - npm or yarn
- 
 
-Contributing
----------------------------
+## Contributing
+
 All instructions can be found in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
+## Support
 
-Support 
----------------------------
-If you like this project, you can support me with a very small donation. 
-<br/>
+If you like this project, you can support me with a very small donation.
+
 I would be grateful 🥹
 <br/>
 <br/>
- <a href="https://www.buymeacoffee.com/domenicotenace" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-
+<a href="https://www.buymeacoffee.com/domenicotenace" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>

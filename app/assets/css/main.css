@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00dc82;
+  --color-secondary: #4cbf65;
+  --color-accent: #f5f5f5;
+  --color-background: lab(1.76974% 1.32743 -9.28855);
+  --color-background-muted: #091022;
+
+  --font-sans: "Inter", mono;
+  --font-heading: "Inter", mono;
+}
+
+@layer base {
+  #__nuxt {
+    @apply relative w-full h-dvh md:min-h-dvh flex flex-col bg-background;
+  }
+
+  #__nuxt .page-enter-active,
+  #__nuxt .page-leave-active {
+    @apply transition-all duration-600 ease-in-out;
+  }
+
+  #__nuxt .page-enter-from,
+  #__nuxt .page-leave-to {
+    @apply opacity-0 translate-y-4;
+  }
+
+  ::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+
+  ::-webkit-color-swatch {
+    @apply border-1 border-neutral-800 rounded-full;
+  }
+
+  ::-moz-color-swatch {
+    @apply border-1 border-neutral-800 rounded-full;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    @apply size-4 appearance-none bg-white border-1 border-neutral-800 rounded-full;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    @apply bg-white border-1 border-neutral-800 rounded-full;
+  }
+}

@@ -1,34 +1,30 @@
 <template>
-  <nav class="bg-primary text-surface shadow-minimal">
-    <div class="flex items-center justify-between py-4 px-6">
-      <NuxtLink to="/"
-        ><h1 class="text-2xl font-heading font-bold tracking-wide">
-          Glif
-        </h1></NuxtLink
-      >
+  <nav class="w-full flex items-center justify-between px-4 md:px-64 py-4 bg-primary z-20">
+    <NuxtLink to="/" class="w-full md:w-fit flex justify-center items-center gap-2">
+      <IconLogo class="size-10 md:size-6" />
+      <h1 class="text-4xl md:text-2xl font-heading font-bold tracking-wide">Glif</h1>
+    </NuxtLink>
 
-      <ul class="flex gap-8 items-center font-sans">
-        <li>
-          <NuxtLink
-            to="/"
-            class="flex items-center gap-1 hover:text-accent transition-colors"
-          >
-            <HomeIcon class="w-5 h-5" /> Home
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink
-            to="/create"
-            class="flex items-center gap-1 hover:text-accent transition-colors"
-          >
-            <PlusCircleIcon class="w-5 h-5" /> Create
-          </NuxtLink>
-        </li>
-      </ul>
-    </div>
+    <ul class="hidden md:flex gap-8 items-center font-sans">
+      <li>
+        <NuxtLink
+          to="/"
+          class="flex items-center gap-2 text-surface fill-surface transition-colors"
+        >
+          <IconHome />
+          Home
+        </NuxtLink>
+      </li>
+
+      <li>
+        <NuxtLink
+          to="/create"
+          class="flex items-center gap-2 text-surface fill-surface transition-colors"
+        >
+          <IconCreate />
+          Create
+        </NuxtLink>
+      </li>
+    </ul>
   </nav>
 </template>
-
-<script setup lang="ts">
-import { HomeIcon, PlusCircleIcon } from "@heroicons/vue/24/outline";
-</script>
