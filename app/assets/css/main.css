@@ -13,7 +13,7 @@
 
 @layer base {
   #__nuxt {
-    @apply relative w-full h-dvh md:min-h-dvh flex flex-col bg-background;
+    @apply relative w-full h-dvh md:min-h-dvh flex flex-col justify-center items-center bg-background;
   }
 
   #__nuxt .page-enter-active,

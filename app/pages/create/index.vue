@@ -5,7 +5,7 @@ const { data } = useQRCode();
 </script>
 <template>
   <main
-    class="grow-1 md:flex md:justify-center md:items-center px-4 md:px-64 py-4 overflow-y-scroll"
+    class="grow-1 w-full max-w-512 md:flex md:justify-center md:items-center px-4 md:px-64 py-4 overflow-y-scroll md:overflow-y-auto"
   >
     <section
       class="w-full h-fit flex flex-col md:grid md:grid-cols-2 gap-3 p-3 rounded-xl bg-background-muted border border-neutral-800"
