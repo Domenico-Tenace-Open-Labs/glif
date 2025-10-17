@@ -13,7 +13,7 @@
       Create and download your <span class="text-primary">QR Codes</span>
     </h1>
     <p class="text-lg text-neutral-500 text-center z-10">
-      Smartly organized generated links with easily customization.
+      Smartly organized generated links with easy customization.
     </p>
     <NuxtLink to="/create" class="z-10"><GenericButton>Get started</GenericButton></NuxtLink>
   </main>
