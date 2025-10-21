@@ -3,11 +3,10 @@
   "description": "Application that allows you to create and download customizable QR codes",
   "type": "module",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.1",
   "license": "MIT",
   "authors": [
-    "Domenico Tenace",
-    "botprzemek"
+    "Domenico Tenace"
   ],
   "scripts": {
     "build": "nuxt build",
