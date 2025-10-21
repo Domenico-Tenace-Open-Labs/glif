@@ -1,6 +1,6 @@
 # Glif - QR Code Generator
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Preview of Create page](./.github/assets/generator.png)
@@ -51,6 +51,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="http://notbyte.com"><img src="https://avatars.githubusercontent.com/u/92102878?v=4?s=100" width="100px;" alt="botprzemek"/><br /><sub><b>botprzemek</b></sub></a><br /><a href="https://github.com/DomeT99/glif/commits?author=botprzemek" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://linktr.ee/domenicotenace"><img src="https://avatars.githubusercontent.com/u/85518808?v=4?s=100" width="100px;" alt="Domenico Tenace"/><br /><sub><b>Domenico Tenace</b></sub></a><br /><a href="https://github.com/DomeT99/glif/commits?author=DomeT99" title="Code">💻</a> <a href="#projectManagement-DomeT99" title="Project Management">📆</a> <a href="#maintenance-DomeT99" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>
