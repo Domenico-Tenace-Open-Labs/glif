@@ -40,7 +40,7 @@ const { data, resetData, downloadQRCode } = useQRCode();
         v-model="data.size"
         type="range"
         min="50"
-        max="400"
+        max="270"
         class="w-full h-2 bg-primary hover:bg-primary/80 rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-primary/80"
       />
     </aside>
