@@ -15,6 +15,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "DomeT99",
+      "name": "Domenico Tenace",
+      "avatar_url": "https://avatars.githubusercontent.com/u/85518808?v=4",
+      "profile": "http://linktr.ee/domenicotenace",
+      "contributions": [
+        "code",
+        "projectManagement",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
