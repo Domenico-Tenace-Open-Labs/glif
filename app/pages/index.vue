@@ -1,6 +1,6 @@
 <template>
   <main
-    class="grow-1 relative flex font-sans flex-col items-center justify-center gap-4 md:gap-6 px-8 md:px-64 py-16"
+    class="grow relative flex font-sans flex-col items-center justify-center gap-4 md:gap-6 px-8 md:px-64 py-16"
   >
     <aside class="absolute inset-0 opacity-30">
       <section
