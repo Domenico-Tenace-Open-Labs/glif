@@ -1,4 +1,5 @@
 import type { Level, RenderAs, ImageSettings } from "qrcode.vue";
+import { isNull, isEmptyString } from "easy-kit-utils";
 
 interface QRCodeData {
   value: string;
@@ -43,13 +44,15 @@ export const useQRCode = () => {
     } satisfies Readonly<QRCodeData>);
 
   const downloadQRCode = () => {
-    if (data.value.value.trim() == "" || data.value.value == null) {
+    if (isEmptyString(data.value.value) || isNull(data.value.value)) {
       alert("Please insert a value to generate QR Code.");
       return;
     }
 
     const link = document.createElement("a") as HTMLAnchorElement;
-    const canvas = document.querySelector("canvas")!.toDataURL("image/png") as string;
+    const canvas = document
+      .querySelector("canvas")!
+      .toDataURL("image/png") as string;
 
     link.href = canvas;
     link.download = `${new Date().getTime()}.png`;

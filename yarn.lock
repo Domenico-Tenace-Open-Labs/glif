@@ -3638,6 +3638,11 @@ eastasianwidth@^0.2.0:
   resolved "https://registry.npmjs.org/eastasianwidth/-/eastasianwidth-0.2.0.tgz"
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
+easy-kit-utils@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/easy-kit-utils/-/easy-kit-utils-1.0.0.tgz#97c811d998b400b81ad195b82abf1eef123d5b55"
+  integrity sha512-l0lvn1V2pXBD2nMOTSGglvUxv+vtGpauonURpzeCfEb7hP2VthvS/BtpSozkyRTzSIrLpOFMy1sOAssA42dqmw==
+
 editorconfig@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/editorconfig/-/editorconfig-1.0.4.tgz#040c9a8e9a6c5288388b87c2db07028aa89f53a3"
