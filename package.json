@@ -12,6 +12,8 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "mobile": "pnpm generate && npx cap sync",
+    "android": "pnpm generate && npx cap sync && npx cap open android",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "preview-test": "nuxt build && nuxt preview",
@@ -21,6 +23,7 @@
     "test:coverage": "vitest --coverage"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.1.0",
     "@nuxt/fonts": "^0.11.4",
     "@nuxt/test-utils": "^3.21.0",
     "@tailwindcss/vite": "^4.1.15",
@@ -37,6 +40,12 @@
     "vue-router": "^4.6.3"
   },
   "dependencies": {
-    "easy-kit-utils": "^1.0.0"
+    "@capacitor/android": "^8.1.0",
+    "@capacitor/app": "^8.0.1",
+    "@capacitor/core": "^8.1.0",
+    "@capacitor/splash-screen": "^8.0.1",
+    "@capacitor/status-bar": "^8.0.1",
+    "easy-kit-utils": "^1.0.0",
+    "typescript": "^5.9.3"
   }
 }

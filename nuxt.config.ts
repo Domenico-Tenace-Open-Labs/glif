@@ -4,8 +4,11 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: false },
   modules: ["@vite-pwa/nuxt", "@nuxt/fonts"],
-
+  nitro: {
+    preset: "static",
+  },
   app: {
+    baseURL: "/",
     pageTransition: { name: "page", mode: "out-in" },
     head: {
       charset: "utf-8",
@@ -33,7 +36,8 @@ export default defineNuxtConfig({
     manifest: {
       name: "Glif",
       short_name: "Glif",
-      description: "Application that allows you to create and download customizable QR codes",
+      description:
+        "Application that allows you to create and download customizable QR codes",
       theme_color: "#4caf50",
       icons: [
         {
