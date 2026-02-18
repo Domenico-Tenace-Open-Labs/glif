@@ -1,5 +1,7 @@
 import type { Level, RenderAs, ImageSettings } from "qrcode.vue";
-import { isNull, isEmptyString } from "easy-kit-utils";
+import * as easyKitUtils from "easy-kit-utils";
+// @ts-ignore
+const { isNull, isEmptyString } = easyKitUtils.default || easyKitUtils;
 
 interface QRCodeData {
   value: string;
