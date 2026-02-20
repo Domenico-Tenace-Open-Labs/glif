@@ -45,11 +45,11 @@ describe("useQRCode composable", () => {
     global.alert = vi.fn();
     downloadQRCode();
     expect(global.alert).toHaveBeenCalledWith(
-      "Please insert a value to generate QR Code."
+      "Please insert a value to generate QR Code.",
     );
   });
 
-  it("should create a download link when downloading QR code with valid value", () => {
+  it("should create a download link when downloading QR code with valid value (web app)", () => {
     const { data, downloadQRCode } = useQRCode();
     data.value.value = "https://example.com";
 
@@ -66,7 +66,7 @@ describe("useQRCode composable", () => {
       click: mockClick,
     } as unknown as HTMLAnchorElement);
     vi.spyOn(document, "querySelector").mockReturnValue(
-      mockCanvas as unknown as HTMLCanvasElement
+      mockCanvas as unknown as HTMLCanvasElement,
     );
 
     downloadQRCode();

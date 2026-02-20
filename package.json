@@ -39,9 +39,11 @@
     "vue-router": "^4.6.3"
   },
   "dependencies": {
+    "@capacitor-community/media": "^9.0.1",
     "@capacitor/android": "^8.1.0",
     "@capacitor/app": "^8.0.1",
     "@capacitor/core": "^8.1.0",
+    "@capacitor/filesystem": "^8.1.2",
     "@capacitor/status-bar": "^8.0.1",
     "easy-kit-utils": "^1.0.0",
     "typescript": "^5.9.3"

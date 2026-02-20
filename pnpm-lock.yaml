@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@capacitor-community/media':
+        specifier: ^9.0.1
+        version: 9.0.1(@capacitor/core@8.1.0)
       '@capacitor/android':
         specifier: ^8.1.0
         version: 8.1.0(@capacitor/core@8.1.0)
@@ -17,6 +20,9 @@ importers:
       '@capacitor/core':
         specifier: ^8.1.0
         version: 8.1.0
+      '@capacitor/filesystem':
+        specifier: ^8.1.2
+        version: 8.1.2(@capacitor/core@8.1.0)
       '@capacitor/status-bar':
         specifier: ^8.0.1
         version: 8.0.1(@capacitor/core@8.1.0)
@@ -613,6 +619,11 @@ packages:
       commander:
         optional: true
 
+  '@capacitor-community/media@9.0.1':
+    resolution: {integrity: sha512-MYTaEQduZc0vpzDX/glMQjPYdYUm/17I5sQslnpvk91e+xjpJkjRYNh11vtWzlR7WZpxf1X1ScqtGhR6B2F65Q==}
+    peerDependencies:
+      '@capacitor/core': '>=8.0.0'
+
   '@capacitor/android@8.1.0':
     resolution: {integrity: sha512-z0acTPxj5DCy/U2FU7w+GA93oC+wdyKnsOcRg5rutDmSYa8Do1tzYqApKgf+hnuTNPbtrCTHp0Zy1cLiK/4MEw==}
     peerDependencies:
@@ -631,10 +642,18 @@ packages:
   '@capacitor/core@8.1.0':
     resolution: {integrity: sha512-UfMBMWc1v7J+14AhH03QmeNwV3HZx3qnOWhpwnHfzALEwAwlV/itQOQqcasMQYhOHWL0tiymc5ByaLTn7KKQxw==}
 
+  '@capacitor/filesystem@8.1.2':
+    resolution: {integrity: sha512-doaaMfGoFR2hWU6aV6u83I+5ZsGyJVq+Gz4r9lMpJzUKMm1eMu0hLnFdV1aXZlU9FlK/RndFrVD8oRZfNOqWgQ==}
+    peerDependencies:
+      '@capacitor/core': '>=8.0.0'
+
   '@capacitor/status-bar@8.0.1':
     resolution: {integrity: sha512-OR59dlbwvmrV5dKsC9lvwv48QaGbqcbSTBpk+9/WXWxXYSdXXdzJZU9p8oyNPAkuJhCdnSa3XmU43fZRPBJJ5w==}
     peerDependencies:
       '@capacitor/core': '>=8.0.0'
+
+  '@capacitor/synapse@1.0.4':
+    resolution: {integrity: sha512-/C1FUo8/OkKuAT4nCIu/34ny9siNHr9qtFezu4kxm6GY1wNFxrCFWjfYx5C1tUhVGz3fxBABegupkpjXvjCHrw==}
 
   '@capsizecss/metrics@3.6.2':
     resolution: {integrity: sha512-5uL1EIhAlfg0dvWsR1DGfqIsyiPBUsD/qlra15B82Ik28BcH7ScYEHLA4F34fZA0KamlpYcappvt2n1pTuDUfw==}
@@ -5932,6 +5951,10 @@ snapshots:
       cac: 6.7.14
       citty: 0.1.6
 
+  '@capacitor-community/media@9.0.1(@capacitor/core@8.1.0)':
+    dependencies:
+      '@capacitor/core': 8.1.0
+
   '@capacitor/android@8.1.0(@capacitor/core@8.1.0)':
     dependencies:
       '@capacitor/core': 8.1.0
@@ -5966,9 +5989,16 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
+  '@capacitor/filesystem@8.1.2(@capacitor/core@8.1.0)':
+    dependencies:
+      '@capacitor/core': 8.1.0
+      '@capacitor/synapse': 1.0.4
+
   '@capacitor/status-bar@8.0.1(@capacitor/core@8.1.0)':
     dependencies:
       '@capacitor/core': 8.1.0
+
+  '@capacitor/synapse@1.0.4': {}
 
   '@capsizecss/metrics@3.6.2': {}
 
