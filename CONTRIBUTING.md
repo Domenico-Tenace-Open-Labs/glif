@@ -15,7 +15,7 @@ First install the dependencies with the follow command:
 ```
 npm install
 # or
-yarn install
+pnpm install
 ```
 
 for run locally project run:
@@ -23,7 +23,29 @@ for run locally project run:
 ```
 npm run dev
 # or
-yarn dev
+pnpm dev
+```
+
+## Running Native Mobile App (Capacitor)
+
+If you'd like to test the mobile application using Capacitor (e.g., for Android), perform the following steps:
+
+1. Build the Nuxt application statically:
+
+```bash
+pnpm run generate
+```
+
+2. Sync the web assets over to Capacitor:
+
+```bash
+npx cap sync
+```
+
+3. Open Android Studio to build and run the code:
+
+```bash
+npx cap open android
 ```
 
 ## How to Contribute

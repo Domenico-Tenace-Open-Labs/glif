@@ -1,31 +1,35 @@
 # Glif - QR Code Generator
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Preview of Create page](./.github/assets/generator.png)
 
 ## Description
 
-Glif is a small web application that allows you to create and download customizable QR codes.
+Glif is a small application that allows you to create and download customizable QR codes. It works as a PWA, Web App or as a Native Mobile App via Capacitor.
 
 ## Key Features
 
 - Generate QR codes from text or URLs
 - Customize size and foreground/background colors
-- Download the QR code as a PNG image
+- Download the QR code as a PNG image (on the web) or directly save it to the device Gallery (on native mobile platforms)
 
 ## Tech Stack
 
 - Nuxt
 - TypeScript
 - TailwindCSS
+- Capacitor (Native runtime for iOS/Android)
 - [qrcode.vue](https://github.com/scopewu/qrcode.vue) for QR rendering
 
 ## Requirements
 
 - Node.js (recommended v16+ or v18+)
-- npm or yarn
+- npm or pnpm
 
 ## Contributing
 
