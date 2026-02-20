@@ -13,7 +13,6 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "mobile": "pnpm generate && npx cap sync",
-    "android": "pnpm generate && npx cap sync && npx cap open android",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "preview-test": "nuxt build && nuxt preview",

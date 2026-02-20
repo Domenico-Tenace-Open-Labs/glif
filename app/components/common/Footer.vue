@@ -4,8 +4,11 @@
   >
     <span>
       Made with ❤️ by
-      <NuxtLink to="https://www.github.com/DomeT99/glif" external class="underline"
-        >Domenico Tenace</NuxtLink
+      <NuxtLink
+        to="https://github.com/Domenico-Tenace-Open-Labs/glif"
+        external
+        class="underline"
+        >Domenico Tenace Open Labs</NuxtLink
       >
     </span>
   </footer>
