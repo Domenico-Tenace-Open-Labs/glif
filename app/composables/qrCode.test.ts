@@ -1,7 +1,41 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import { useQRCode } from "./qrCode";
+import { Capacitor } from "@capacitor/core";
+import { Filesystem } from "@capacitor/filesystem";
+import { Media } from "@capacitor-community/media";
+import { handlePhotoAlbums } from "../utils/handlePhotoAlbums";
+
+vi.mock("@capacitor/core", () => ({
+  Capacitor: {
+    isNativePlatform: vi.fn(() => false),
+  },
+}));
+
+vi.mock("@capacitor/filesystem", () => ({
+  Filesystem: {
+    writeFile: vi.fn(),
+  },
+  Directory: {
+    Cache: "CACHE",
+  },
+}));
+
+vi.mock("@capacitor-community/media", () => ({
+  Media: {
+    savePhoto: vi.fn(),
+  },
+}));
+
+vi.mock("../utils/handlePhotoAlbums", () => ({
+  handlePhotoAlbums: vi.fn(),
+}));
 
 describe("useQRCode composable", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    vi.mocked(Capacitor.isNativePlatform).mockReturnValue(false);
+  });
+
   it("should initialize with default values", () => {
     const { data } = useQRCode();
     expect(data.value).toEqual({
@@ -73,5 +107,48 @@ describe("useQRCode composable", () => {
 
     expect(mockClick).toHaveBeenCalled();
     expect(mockToDataURL).toHaveBeenCalled();
+  });
+
+  it("should save the QR code to gallery when on native platform (Android/iOS)", async () => {
+    const { data, downloadQRCode } = useQRCode();
+    data.value.value = "native test value";
+
+    vi.mocked(Capacitor.isNativePlatform).mockReturnValue(true);
+
+    const mockToDataURL = vi
+      .fn()
+      .mockReturnValue("data:image/png;base64,FAKEBASE64NATIVE");
+    const mockCanvas = {
+      toDataURL: mockToDataURL,
+    };
+    vi.spyOn(document, "querySelector").mockReturnValue(
+      mockCanvas as unknown as HTMLCanvasElement,
+    );
+    global.alert = vi.fn();
+
+    vi.mocked(handlePhotoAlbums).mockResolvedValue({
+      identifier: "ALBUM_ID",
+    } as any);
+    vi.mocked(Filesystem.writeFile).mockResolvedValue({
+      uri: "file://path/to/qr.png",
+    });
+    vi.mocked(Media.savePhoto).mockResolvedValue(undefined as any);
+
+    await downloadQRCode();
+
+    expect(mockToDataURL).toHaveBeenCalledWith("image/png");
+    expect(handlePhotoAlbums).toHaveBeenCalled();
+    expect(Filesystem.writeFile).toHaveBeenCalledWith({
+      path: expect.stringMatching(/\d+\.png/),
+      data: "FAKEBASE64NATIVE",
+      directory: "CACHE",
+    });
+    expect(Media.savePhoto).toHaveBeenCalledWith({
+      path: "file://path/to/qr.png",
+      albumIdentifier: "ALBUM_ID",
+    });
+    expect(global.alert).toHaveBeenCalledWith(
+      "QR Code has been saved to your gallery.",
+    );
   });
 });

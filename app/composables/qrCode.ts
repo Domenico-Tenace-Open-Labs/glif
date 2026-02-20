@@ -1,18 +1,14 @@
-import type { Level, RenderAs, ImageSettings } from "qrcode.vue";
+//Libraries
+import * as easyKitUtils from "easy-kit-utils";
+//Types
+import type { QRCodeData } from "../types/qrCodeData";
+//Capacitor
 import { Capacitor } from "@capacitor/core";
 import { Filesystem, Directory } from "@capacitor/filesystem";
 import { Media } from "@capacitor-community/media";
-import * as easyKitUtils from "easy-kit-utils";
+//Utils
+import { handlePhotoAlbums } from "../utils/handlePhotoAlbums";
 
-interface QRCodeData {
-  value: string;
-  size: number;
-  level: Level;
-  renderAs: RenderAs;
-  background: string;
-  foreground: string;
-  imageSettings: ImageSettings;
-}
 // @ts-ignore
 const { isNull, isEmptyString } = easyKitUtils.default || easyKitUtils;
 const data = ref<QRCodeData>({
@@ -53,38 +49,36 @@ export const useQRCode = () => {
       return;
     }
 
+    const fileName = `${new Date().getTime()}.png`;
+    const base64Data = document.querySelector("canvas")!.toDataURL("image/png");
+
     if (Capacitor.isNativePlatform()) {
-      await _downloadNativeQRCode();
+      await _downloadNativeQRCode(fileName, base64Data);
     } else {
-      _downloadWebQRCode();
+      _downloadWebQRCode(fileName, base64Data);
     }
     resetData();
   };
 
-  const _downloadWebQRCode = () => {
+  const _downloadWebQRCode = (fileName: string, base64Data: string) => {
     const link = document.createElement("a") as HTMLAnchorElement;
-    const canvas = document
-      .querySelector("canvas")!
-      .toDataURL("image/png") as string;
 
-    link.href = canvas;
-    link.download = `${new Date().getTime()}.png`;
+    link.href = base64Data;
+    link.download = fileName;
     link.click();
   };
 
-  const _downloadNativeQRCode = async () => {
+  const _downloadNativeQRCode = async (
+    fileName: string,
+    base64Data: string,
+  ) => {
     try {
-      const base64Data = document
-        .querySelector("canvas")!
-        .toDataURL("image/png")
-        .split(",")[1];
-
-      const fileName = `${new Date().getTime()}.png`;
-      const album = await _handlePhotoAlbums();
+      const base64DataSplitted = base64Data.split(",")[1] as string;
+      const album = await handlePhotoAlbums();
 
       const savedFile = await Filesystem.writeFile({
         path: fileName,
-        data: base64Data!,
+        data: base64DataSplitted!,
         directory: Directory.Cache,
       });
 
@@ -93,25 +87,12 @@ export const useQRCode = () => {
         albumIdentifier: album.identifier,
       });
 
-      alert("QR Code is saved in the gallery.");
+      alert("QR Code has been saved to your gallery.");
       return;
     } catch (error) {
-      const a = await Media.getAlbums();
-      alert("Errore durante il salvataggio: " + a);
+      alert("An error occurred during the saving: " + error);
+      return;
     }
-  };
-
-  const _handlePhotoAlbums = async () => {
-    let albums = await Media.getAlbums();
-
-    if (!albums.albums.find((x) => x.name == "Glif Downloads")) {
-      await Media.createAlbum({ name: "Glif Downloads" });
-    }
-
-    albums = await Media.getAlbums();
-    const album = albums.albums.find((x) => x.name == "Glif Downloads")!;
-
-    return album;
   };
 
   return { data, resetData, downloadQRCode };
