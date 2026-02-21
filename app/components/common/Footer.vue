@@ -5,7 +5,7 @@
     <span>
       Made with ❤️ by
       <NuxtLink
-        to="https://github.com/Domenico-Tenace-Open-Labs/glif"
+        to="https://github.com/Domenico-Tenace-Open-Labs"
         external
         class="underline"
         >Domenico Tenace Open Labs</NuxtLink
